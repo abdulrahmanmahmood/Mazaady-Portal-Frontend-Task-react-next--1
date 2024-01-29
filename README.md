@@ -24,3 +24,5 @@ NextFormWizard is a dynamic and user-friendly form submission application built 
 - Implements thorough testing methods to ensure the reliability and functionality of the application.
 - Adheres to industry best practices for quality assurance, emphasizing the delivery of a stable and error-free product.
 
+**Demo:**
+Explore the live demo [here](https://mazaady-portal-frontend-task-react-next-1.vercel.app/).
