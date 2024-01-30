@@ -1,6 +1,3 @@
-import React from 'react';
-import Select from 'react-select';
-
 const MainForm = ({
   cats,
   selectedCat,
@@ -17,7 +14,6 @@ const MainForm = ({
   selectedProperty,
   otherValue,
   selectedMainFormValues,
-  processType
 }) => {
   return (
     <>
@@ -54,17 +50,17 @@ const MainForm = ({
         />
       </>
 
-      {
+      {selectedChild && (
         <>
           <label htmlFor="main-category" className="">
             Process Type
           </label>
 
           <Select
-            options={(processType || [])
-              .map((item) => ({
-                value: item.id,
-                label: item.name,
+            options={(selectedChild?.properties || [])
+              .map((property) => ({
+                value: property,
+                label: property,
               }))
               .concat([{ value: 'other', label: 'Other' }])}
             onChange={onPropertyChange}
@@ -73,7 +69,7 @@ const MainForm = ({
             className="my-2 p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300 mb-4 w-full"
           />
         </>
-      }
+      )}
 
       {selectedCat && (
         <>
@@ -91,5 +87,3 @@ const MainForm = ({
     </>
   );
 };
-
-export default MainForm;

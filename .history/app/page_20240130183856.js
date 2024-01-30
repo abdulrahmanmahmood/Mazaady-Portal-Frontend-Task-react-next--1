@@ -19,7 +19,6 @@ export default function Home() {
   const [CarModel, setCarModel] = useState([]);
   const [carType, setCarType] = useState([]);
   const [tableView, setTableView] = useState(null);
-  const [processType, setProcessType] = useState([])
   const [selectedMainFormValues, setSelectedMainFormValues] = useState({
     mainCategory: "",
     subCategory: "",
@@ -107,8 +106,7 @@ export default function Home() {
 
   const getProcessType = () => {
     CarsModels.getProcessType().then((res) => {
-      console.log('process type',res.data.data[0].options);
-      setProcessType(res.data.data[0].options)
+      console.log(,res.data.data[0]);
     });
   };
 
@@ -123,7 +121,6 @@ export default function Home() {
 
         <MainForm
           cats={cats}
-          processType={processType}
           selectedCat={selectedCat}
           setSelectedCat={setSelectedCat}
           setSelectedCatChildren={setSelectedCatChildren}

@@ -61,10 +61,10 @@ const MainForm = ({
           </label>
 
           <Select
-            options={(processType || [])
-              .map((item) => ({
-                value: item.id,
-                label: item.name,
+            options={(selectedChild?.properties || [])
+              .map((property) => ({
+                value: property,
+                label: property,
               }))
               .concat([{ value: 'other', label: 'Other' }])}
             onChange={onPropertyChange}

@@ -123,7 +123,6 @@ export default function Home() {
 
         <MainForm
           cats={cats}
-          processType={processType}
           selectedCat={selectedCat}
           setSelectedCat={setSelectedCat}
           setSelectedCatChildren={setSelectedCatChildren}

@@ -9,15 +9,14 @@ const MainForm = ({
   setSelectedChild,
   setSelectedProperty,
   setOtherValue,
-  onMainChange,
-  onChildChange,
-  onPropertyChange,
+  onMainChange,  // Corrected prop name
+  onChildChange, 
+  onPropertyChange, 
   selectedCatChildren,
   selectedChild,
   selectedProperty,
   otherValue,
   selectedMainFormValues,
-  processType
 }) => {
   return (
     <>
@@ -30,41 +29,42 @@ const MainForm = ({
           value: item?.id,
           label: item?.name,
         }))}
-        onChange={onMainChange}
+        onChange={onMainChange} 
         value={selectedCat}
         placeholder="Select a category..."
         className="p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300 mb-4 w-full my-2"
       />
 
-      {/* Always render Sub Category Select, even if no main category selected */}
-      <>
-        <label htmlFor="main-category" className="">
-          Sub Category
-        </label>
+      {selectedCat && selectedCatChildren.length > 0 && (
+        <>
+          <label htmlFor="main-category" className="">
+            Sub Category
+          </label>
 
-        <Select
-          options={selectedCatChildren.map((child) => ({
-            value: child.id,
-            label: child.name,
-          }))}
-          onChange={onChildChange}
-          value={selectedChild}
-          placeholder="Select a sub-category..."
-          className="my-2 p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300 mb-4 w-full"
-        />
-      </>
+          <Select
+            options={selectedCatChildren.map((child) => ({
+              value: child.id,
+              label: child.name,
+            }))}
+            onChange={onChildChange}
+            value={selectedChild}
+            placeholder="Select a sub-category..."
+            className="my-2 p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300 mb-4 w-full"
+          />
+        </>
+      )}
 
-      {
+      {selectedChild && (
         <>
           <label htmlFor="main-category" className="">
             Process Type
           </label>
 
           <Select
-            options={(processType || [])
-              .map((item) => ({
-                value: item.id,
-                label: item.name,
+            options={(selectedChild?.properties || [])
+              .map((property) => ({
+                value: property,
+                label: property,
               }))
               .concat([{ value: 'other', label: 'Other' }])}
             onChange={onPropertyChange}
@@ -73,7 +73,7 @@ const MainForm = ({
             className="my-2 p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300 mb-4 w-full"
           />
         </>
-      }
+      )}
 
       {selectedCat && (
         <>

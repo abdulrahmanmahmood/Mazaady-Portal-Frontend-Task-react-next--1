@@ -64,7 +64,7 @@ const MainForm = ({
             options={(processType || [])
               .map((item) => ({
                 value: item.id,
-                label: item.name,
+                label: property,
               }))
               .concat([{ value: 'other', label: 'Other' }])}
             onChange={onPropertyChange}

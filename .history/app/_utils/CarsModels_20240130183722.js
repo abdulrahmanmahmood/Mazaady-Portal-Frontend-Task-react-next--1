@@ -7,5 +7,4 @@ const getProcessType =()=>axiosClient.get('/properties?cat=13 (1)')
 export default {
   getCarBrand,
   getCarModel,
-  getProcessType
 };

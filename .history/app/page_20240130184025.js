@@ -108,7 +108,6 @@ export default function Home() {
   const getProcessType = () => {
     CarsModels.getProcessType().then((res) => {
       console.log('process type',res.data.data[0].options);
-      setProcessType(res.data.data[0].options)
     });
   };
 
@@ -123,7 +122,6 @@ export default function Home() {
 
         <MainForm
           cats={cats}
-          processType={processType}
           selectedCat={selectedCat}
           setSelectedCat={setSelectedCat}
           setSelectedCatChildren={setSelectedCatChildren}
